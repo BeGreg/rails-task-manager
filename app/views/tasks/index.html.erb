@@ -1,0 +1,23 @@
+<h1>Keep calm and complete your tasks</h1>
+<ul>
+  <% @tasks.each do |task| %>
+      <p>
+        <li>
+        <h3>
+          <% if task.done %>
+            <% class_type = "fa fa-check-square-o" %>
+            <% else class_type = "fa fa-square-o" %>
+          <% end %>
+          <i class="<%= class_type %>" aria-hidden="true"></i>
+          <%= link_to task.name, task_path(task)%>
+        </h3>
+        <div>
+          <%= link_to "Edit", edit_task_path(task) %> |
+          <%= link_to "Delete", task_path(task), method: :delete, data: { confirm: "Are you sure?" } %>
+        </div>
+      </p>
+      <p>Description: <%= task.description %></p>
+    </li>
+  <% end %>
+</ul>
+<p><%= link_to "[+] Add a new task", new_task_path %></p>

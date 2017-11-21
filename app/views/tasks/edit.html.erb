@@ -1,0 +1,13 @@
+<h1>Let's edit it</h1>
+<%= form_for(@task) do |f| %>
+  <%= f.label :name, :class => 'form-group' %>
+  <%= f.text_field :name, :class => 'form-group' %>
+
+  <%= f.label :description, :class => 'form-group' %>
+  <%= f.text_field :description, :class => 'form-group' %>
+
+  <%= f.check_box :done %>
+
+  <%= f.submit %>
+<% end %>
+
